@@ -21,7 +21,7 @@ Isometric means that the distances between each two vertices \\(v, w \in G\\) is
 \\( d(v, w)\_G = \| f(v) - f(w) \|\_2 \\).
 So, if we had such an isometry \\( f: G \rightarrow \mathbb{E}^N \\), we would have a neat way to compute distances 
 between \\(v, w\\) in our original graph \\(G\\), just by computing the distances of the images \\(f(v), f(w)\\) in 
-\\(\mathbb{E}^N\\). This operation would be in \\( \mathcal{O}(N) \\) which is efficient as long as the dimension 
+\\(\mathbb{E}^N\\). If our mapping is efficient this operation would be in \\( \mathcal{O}(N) \\) which is efficient as long as the dimension 
 can be kept small.
 
 ## The Problem with Euclidean Space
@@ -64,7 +64,9 @@ Given a quadrilateral with side lengths \\(s\_1, s\_2, s\_3, s\_4\\) and diagona
 
 [INCLUDE PICTURE OF QUADRILATERAL!]
 
-In our case the side lengths \\(s\_i\\) have to be all one, because the edges have weight 1. 
+In our case we would take the images \\(f(v\_0), f(v\_1), f(v\_2), f(v\_2), f(v\_3) \\) as the four 
+vertices of the quadrilateral.
+Then the side lengths \\(s\_i\\) have to be all one, because the edges have weight 1. 
 The diagonals on the other hand need to have length 2.
 
 Thus the inequality becomes:
@@ -117,6 +119,14 @@ Subtracting \\( \frac{f(v\_2)}{2} \\) on the outer-left and outer right, we get
 which means that the images of \\(v\_1, v\_3\\) have to be equal and have distance \\(0\\).
 This can't be, so there can't be an isometry from \\( K\_{1, 3} \\) to any euclidean space.
 
+## Conclusion
+We have seen the appeal of embedding graphs isometrically into euclidean space. However, 
+there are simple examples of graphs which can't possibly embedded into euclidean space.
+
+Now, there are some fixes for that. The most popular one seems to be to try to 
+[embed graphs into hyperbolic space](http://hyperbolicdeeplearning.com/poincare-glove/).
+I will try to follow up in a future post with a different solution though, which is the so called 
+[power transform of finite metric spaces](https://www.sciencedirect.com/science/article/pii/S0012365X13003841).
 
 [cycle]:https://upload.wikimedia.org/wikipedia/commons/7/70/Circle_graph_C4.svg
 [stars]:https://upload.wikimedia.org/wikipedia/commons/7/7d/Star_graphs.svg
