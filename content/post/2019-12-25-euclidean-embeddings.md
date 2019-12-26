@@ -15,7 +15,7 @@ can be represented by coordinates - like \\(N \\)-dimensional
 , \\( \mathbb{E}^N \\).
 
 Let's consider an isometric mapping from a graph with a path distance metric 
-to n-dimensional euclidean space for instance: 
+to \\(N\\)-dimensional euclidean space for instance: 
 \\( f: G \rightarrow \mathbb{E}^N \\).
 Isometric means that the distances between each two vertices \\(v, w \in G\\) is preserved by \\(f\\), i.e.
 \\( d(v, w)\_G = \| f(v) - f(w) \|\_2 \\).
@@ -47,7 +47,7 @@ The distance matrix for this metric can be easily verified to be the following:
 \\[
 \begin{pmatrix} 0 & 1 & 2 & 1 \\\ 1 & 0 & 1 & 2 \\\ 2 & 1 & 0 & 1 \\\ 1 & 2 & 1 & 0\end{pmatrix}.
 \\]
-Here the entry in row \\( i \\) and column \\( j \\) is the distance of \\( v_i \\) to \\( v_j \\).
+Here the entry in row \\( i \\) and column \\( j \\) is the distance of \\( v\_i \\) to \\( v\_j \\).
 We see, that there are only distances 1, 2 (and 0). 
 Now, we want to show that there exists no \\(4\\) points in any euclidean space, which have 
 the same distance matrix with respect to the euclidean distance.
@@ -62,9 +62,7 @@ Given a quadrilateral with side lengths \\(s\_1, s\_2, s\_3, s\_4\\) and diagona
 \\[s\_1s\_3 + s\_2s\_4 \geq d\_1 d\_2\\].
 
 
-[INCLUDE PICTURE OF QUADRILATERAL!]
-
-In our case we would take the images \\(f(v\_0), f(v\_1), f(v\_2), f(v\_2), f(v\_3) \\) as the four 
+In our case, we would take the images \\(f(v\_0), f(v\_1), f(v\_2), f(v\_3) \\) as the four 
 vertices of the quadrilateral.
 Then the side lengths \\(s\_i\\) have to be all one, because the edges have weight 1. 
 The diagonals on the other hand need to have length 2.
@@ -72,7 +70,7 @@ The diagonals on the other hand need to have length 2.
 Thus the inequality becomes:
 
 \\[
-s\_1s\_3 + s\_2s\_4 = 1*1 + 1*1 = 2 \geq 4 = 2*2 = d\_1 d\_2
+s\_1s\_3 + s\_2s\_4 = 1\cdot1 + 1\cdot1 = 2 \geq 4 = 2\cdot2 = d\_1 d\_2
 \\].
 
 This is an obvious contradiction, hence there can't be an isometric embedding of 
