@@ -2,9 +2,9 @@
 title = "The Power Transform of Graphs"
 description = ""
 author = "David Blitz"
-date = 2020-05-02T16:00:29+01:00
+date = 2020-07-03T16:00:29+01:00
 tags = ["embedding", "graphs", "isometry", "euclidean", "metric", "space", "power-transform"]
-draft = "True"
+draft = "False"
 +++
 
 ## Motivation
@@ -21,8 +21,8 @@ arises when we just take each distance in the graph to the power \\( c \\):
 \\[
 d\_{G, c}(v, w) = d\_G(v, w)^c.
 \\]
-In order to guarantee that we still end up with a metric. The parameter \\( c \\) for the power transform 
-metric needs to be \\( 0 < c < 1 \\).
+In order to guarantee that we still end up with a metric, the parameter \\( c \\) for the power transform 
+metric needs to be \\( 0 \leq c \leq 1 \\).
 
 In the following we are going show that the power transform indeed preserves the metric properties.
 ## Definition of a Metric Space
@@ -63,10 +63,12 @@ Hence, it suffices to show that we have the inequality
 f(d\_1 + d\_2) \leq f(d\_1) + f(d\_2).
 \\]
 For this, 
-we realize that \\( f(d) = d^c\\), for all \\( d \in (0, \infty) \\) is a concave function 
-[LINK HERE!!]. [MAYBE PROOF].
+we realize that \\( f(d) = d^c\\), for all \\( d \in (0, \infty) \\) is a 
+[concave function](https://en.wikipedia.org/wiki/Concave_function) (for instance by checking that 
+the second derivative is always positive on \\( \mathbb{R}^{+}\_{0} \\)).
 Also we need the fact that \\( f(0) = 0 \\).
-The proof of the above inequality is heavily inspired by the Wikipedia article on convexity.
+The proof of the above inequality is heavily inspired by the Wikipedia article on 
+[convexity](https://en.wikipedia.org/wiki/Convex_function).
 First we note that from concavity we have:
 \\[
 \lambda \in [0, 1] \Rightarrow f(\lambda d) = f(\lambda d + (1 - \lambda) 0) \geq \lambda f(d) + (1 - \lambda)f(0)
@@ -85,7 +87,7 @@ we can apply our lemma [REF!!!] from before and conclude:
 \\[
 f(d\_1 + d\_2) \leq f(\frac{d\_1}{d\_1 + d\_2} (d\_1 + d\_2)) + f(\frac{d\_2}{d\_1 + d\_2} (d\_1 + d\_2))
 = f(d\_1) + f(d\_2).
-\\] Which concludes the proof of the power transform preserving the triangle inequality :))
+\\] This concludes the proof of the power transform preserving the triangle inequality :))
  
 
 ## Fixing some Counterexamples
@@ -95,8 +97,8 @@ We now proceed to embed the counterexamples from the previous post into Euclidea
 ### Cycle of Order Four
 
 For the cycle of order four with shortest path metric
-, \\( C\_4 \\) we apply a power transform with parameter \\( c=\frac{1}{2} \\). 
-We denote the resulting metric space by \\( C\_4^{\frac{1}{2}} \\) and observe that the resulting distance matrix 
+, \\( C\_4 \\) we apply a power transform with parameter \\( c=0.5 \\). 
+We denote the resulting metric space by \\( C\_4^{0.5} \\) and observe that the resulting distance matrix 
 becomes
 \\[
 \begin{pmatrix} 
@@ -104,16 +106,26 @@ becomes
 \end{pmatrix}.
 \\] 
 But this is just the distance matrix of the corners of an ordinary square in \\( \mathbb{R}^2 \\). 
-Hence we can map the vertices of \\( C\_4^{\frac{1}{2}} \\) to the corners of some square in \\( \mathbb{R}^2 \\) 
+Hence we can map the vertices of \\( C\_4^{0.5} \\) to the corners of some square in \\( \mathbb{R}^2 \\) 
 such that adjacent vertices are mapped to adjacent corners.
 
 ### Star with Three Rays
 
 The other counterexample in the previous post was the star with three rays \\( K\_{1, 3} \\). 
-Again, we can apply a power transform with parameter \\( c=\frac{1}{2} \\) and the resulting metric space, 
-\\( K\_{1, 3}^{\frac{1}{2}} \\), will turn out to be embeddable into \\( \mathbb{R}^3 \\):
-As before, we denote the center vertex by \\( v_0 \\) and the other vertices by \\( v\_1, v\_2, v\_3 \\).
-The map \\( f: K\_{1, 3}^{\frac{1}{2}} \rightarrow \mathbb{R}^3 \\) can be defined by \\( f(v\_0) = 0 \\) 
-and \\( f(v\_i) = e\_i \\) for the remaining \\( i= 1, 2, 3 \\). Since the distance between two unit vectors is just \\( \sqrt(2) \\) this works out fine.
+Again, we can apply a power transform with parameter \\( c=0.5 \\) and the resulting metric space, 
+\\( K\_{1, 3}^{0.5} \\), will turn out to be embeddable into \\( \mathbb{R}^3 \\):
+As before, we denote the center vertex by \\( v\_0 \\) and the other vertices by \\( v\_1, v\_2, v\_3 \\).
+The map \\( f: K\_{1, 3}^{0.5} \rightarrow \mathbb{R}^3 \\) can be defined by \\( f(v\_0) = 0 \\) 
+and \\( f(v\_i) = e\_i \\) for the remaining \\( i= 1, 2, 3 \\). 
+Since the distance between two unit vectors is just \\( \sqrt{2} \\) this works out fine.
 
 ## Conclusion
+We introduced the power transform for finite metric spaces. Then we saw that the power transform 
+is a fix for embedding the two simple graphs with shortest-path-metric
+(\\( C\_4 \\) and \\( K\_{1, 3} \\)) which we have proven to not be 
+isometrically embeddable into Euclidean space in the previous post.
+
+It remains to be seen that we can indeed embed ANY finite graph (and even any finite metric space) into Euclidean 
+space provided we apply an appropriate power transform to it.
+
+But that is a proof for a different time :)
