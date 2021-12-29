@@ -18,7 +18,6 @@ googleAnalytics = ""
     headline = "BlitzBlog"
     description = "The Eternal Spot on Your Mind"
     github = "https://github.com/davidblitz"
-    twitter = "https://twitter.com/david_blitz1"
     opengraph = true
 
 [Permalinks]
