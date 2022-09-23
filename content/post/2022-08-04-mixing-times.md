@@ -30,8 +30,6 @@ $$
 \tau(\epsilon) \leq \tau_{mix} \cdot \lceil \log(\epsilon^{-1}) \rceil.
 $$
 
-When it comes to theoretically analysing MCMC sampling algorithms, one often considers families of state spaces and target distributions $ \\{ (S_i, \pi_i) \\}\_{i \in \mathbb{N}}$ with a sampling algorithm that converges for each $i \in \mathbb{N}$. When we look at the corresponding mixing times $\tau_{mix}(i)$, an important question is, if they are in $\mathcal{O}(p(\log(i))$ for a polynomial $p$. In this case, the MCMC method is called *rapidly mixing*. More information on this can be found in [this thesis by Sinclair](https://era.ed.ac.uk/bitstream/handle/1842/11392/Sinclair1988.pdf).
-
 ### Outlook
 
 Many techniques have been developed, in order to prove upper bounds on mixing times for a given MCMC algorithm and I hope that in the future I'll be able to apply some of these techniques successfully to my [original problem](../../../../2022/05/31/2022-05-31-graph-mcmc) of uniformly sampling simple, connected and non-isomorphic graphs on a fixed number of vertices.
